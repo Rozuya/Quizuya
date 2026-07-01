@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUIZUYA - Le Quiz de Rozuya</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#002654,#0d47a1,#ffffff,#ED2939);
+background-size:400% 400%;
+animation:bg 10s infinite alternate;
+overflow:hidden;
+}
+
+@keyframes bg{
+0%{background-position:left;}
+100%{background-position:right;}
+}
+
+.card{
+
+width:450px;
+max-width:90%;
+
+background:rgba(255,255,255,.95);
+
+padding:40px;
+
+border-radius:25px;
+
+box-shadow:0 0 35px rgba(0,0,0,.3);
+
+text-align:center;
+
+animation:apparition 1s;
+
+}
+
+@keyframes apparition{
+
+from{
+opacity:0;
+transform:translateY(-40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0px);
+}
+
+}
+
+.logo{
+
+font-size:55px;
+
+font-weight:bold;
+
+color:#002654;
+
+letter-spacing:3px;
+
+}
+
+.sous{
+
+margin-top:10px;
+
+font-size:20px;
+
+color:#ED2939;
+
+margin-bottom:30px;
+
+}
+
+input{
+
+width:100%;
+
+padding:15px;
+
+font-size:18px;
+
+border-radius:10px;
+
+border:2px solid #002654;
+
+outline:none;
+
+margin-bottom:25px;
+
+}
+
+button{
+
+width:100%;
+
+padding:15px;
+
+font-size:20px;
+
+font-weight:bold;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+background:#002654;
+
+color:white;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+background:#ED2939;
+
+transform:scale(1.03);
+
+}
+
+.footer{
+
+margin-top:30px;
+
+color:gray;
+
+font-size:14px;
+
+}
+
+.france{
+
+margin-top:20px;
+
+font-size:30px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="logo">QUIZUYA</div>
+
+<div class="sous">
+Le Quiz de Rozuya
+</div>
+
+<p>Entre ton pseudo pour commencer</p>
+
+<br>
+
+<input
+type="text"
+id="pseudo"
+placeholder="Ton pseudo">
+
+<button onclick="continuer()">
+
+▶ Commencer
+
+</button>
+
+<div class="france">
+
+🇫🇷
+
+</div>
+
+<div class="footer">
+
+Version Alpha 1.0
+
+<br>
+
+© Rozuya
+
+</div>
+
+</div>
+
+<script>
+
+function continuer(){
+
+let pseudo=document.getElementById("pseudo").value.trim();
+
+if(pseudo==""){
+
+alert("Entre un pseudo.");
+
+return;
+
+}
+
+localStorage.setItem("pseudo",pseudo);
+
+window.location="menu.html";
+
+}
+
+</script>
+
+</body>
+</html>
