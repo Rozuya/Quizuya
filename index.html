@@ -2,318 +2,79 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUIZUYA - Le Quiz de Rozuya</title>
+    <title>House of Laura | Welcome</title>
     <style>
-        :root {
-            --bleu-france: #002395;
-            --blanc: #FFFFFF;
-            --rouge-france: #ED2939;
-            --gris-clair: #f4f6f9;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&display=swap');
 
         body {
-            min-height: 100vh;
+            margin: 0;
+            background-color: #0a0a0a; /* Noir profond */
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            color: #333;
-            background-color: var(--gris-clair);
-            position: relative;
-            padding: 1rem;
-        }
-
-        /* Drapeau de fond stylisé et discret pour habiller l'espace */
-        .flag-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            z-index: 1;
-            opacity: 0.03;
-            pointer-events: none;
-        }
-        .flag-bg .blue { background: var(--bleu-france); flex: 1; }
-        .flag-bg .white { background: var(--blanc); flex: 1; }
-        .flag-bg .red { background: var(--rouge-france); flex: 1; }
-
-        .container {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 440px;
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 2rem;
-            text-align: center;
-        }
-
-        header {
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .logo {
-            font-size: 3.5rem;
-            font-weight: 900;
-            letter-spacing: 3px;
-            margin-bottom: 0.2rem;
-            color: var(--bleu-france);
-            display: inline-block;
-            position: relative;
-        }
-
-        /* Indicateur tricolore sous le logo */
-        .logo-underline {
-            display: flex;
-            width: 80px;
-            height: 5px;
-            margin: 0 auto 1rem auto;
-            border-radius: 10px;
+            height: 100vh;
             overflow: hidden;
         }
-        .logo-underline .b { background: var(--bleu-france); flex: 1; }
-        .logo-underline .w { background: #ccc; flex: 1; }
-        .logo-underline .r { background: var(--rouge-france); flex: 1; }
 
-        .subtitle {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #444;
-            margin-bottom: 0.5rem;
-        }
-
-        .description {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #666;
-        }
-
-        /* La carte principale avec la bande tricolore intégrée */
         .card {
-            background: var(--blanc);
+            text-align: center;
+            padding: 40px;
+            border: 1px solid #222;
+            background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
             border-radius: 20px;
-            width: 100%;
-            box-shadow: 0 15px 35px rgba(0, 35, 149, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
-            animation: fadeInUp 0.8s ease-out 0.1s both;
-            overflow: hidden; /* Pour que la bande tricolore épouse les bords arrondis */
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            max-width: 500px;
         }
 
-        /* Bandeau tricolore sur le haut de la carte */
-        .card-tricolor-bar {
-            display: flex;
-            height: 8px;
-            width: 100%;
-        }
-        .card-tricolor-bar .b { background: var(--bleu-france); flex: 1; }
-        .card-tricolor-bar .w { background: var(--blanc); flex: 1; }
-        .card-tricolor-bar .r { background: var(--rouge-france); flex: 1; }
-
-        .card-body {
-            padding: 2.5rem 2rem;
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            color: #333;
+        p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #888;
+            margin-bottom: 30px;
         }
 
-        .input-group {
-            position: relative;
-            margin-bottom: 1.5rem;
-            text-align: left;
+        .cta {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid #fff;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: all 0.4s ease;
         }
 
-        input[type="text"] {
-            width: 100%;
-            padding: 1rem 1.2rem;
-            border-radius: 12px;
-            border: 2px solid #e0e6ed;
-            background: #f8fafc;
-            color: #333;
-            font-size: 1.1rem;
-            font-weight: 500;
-            outline: none;
-            transition: all 0.25s ease;
+        .cta:hover {
+            background-color: #fff;
+            color: #000;
         }
 
-        input[type="text"]::placeholder {
-            color: #a0aec0;
-        }
-
-        input[type="text"]:focus {
-            background: var(--blanc);
-            border-color: var(--bleu-france);
-            box-shadow: 0 0 0 4px rgba(0, 35, 145, 0.1);
-        }
-
-        .error-message {
-            color: var(--rouge-france);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 0.5rem;
-            display: none;
-            padding-left: 0.2rem;
-            animation: shake 0.4s ease-in-out;
-        }
-
-        /* Bouton principal aux couleurs de l'action */
-        button {
-            width: 100%;
-            padding: 1.1rem;
-            background: var(--bleu-france);
-            color: var(--blanc);
-            font-size: 1.15rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 4px 12px rgba(0, 35, 149, 0.2);
-        }
-
-        button:hover {
-            background: #001b70;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 35, 149, 0.3);
-        }
-
-        button:active {
-            transform: translateY(1px);
-        }
-
-        footer {
-            margin-top: 0.5rem;
-            opacity: 0.6;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: #333;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-4px); }
-            50% { transform: translateX(4px); }
-            75% { transform: translateX(-4px); }
-        }
-
-        .input-error {
-            border-color: var(--rouge-france) !important;
-            background: #fff8f8 !important;
-        }
-
-        @media (max-width: 480px) {
-            .logo { font-size: 3rem; }
-            .subtitle { font-size: 1.2rem; }
-            .card-body { padding: 2rem 1.5rem; }
+        /* Petit effet de reflet/aura subtile */
+        .aura {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            z-index: -1;
         }
     </style>
 </head>
 <body>
-    <div class="flag-bg">
-        <div class="blue"></div>
-        <div class="white"></div>
-        <div class="red"></div>
+    <div class="aura"></div>
+    <div class="card">
+        <h1>House of Laura</h1>
+        <p>L'excellence derrière l'écran.</p>
+        <a href="https://www.twitch.tv/houseoflaura" class="cta">Entrer</a>
     </div>
-
-    <div class="container">
-        <header>
-            <h1 class="logo">QUIZUYA</h1>
-            <div class="logo-underline"><div class="b"></div><div class="w"></div><div class="r"></div></div>
-            <h2 class="subtitle">Le Quiz de Rozuya</h2>
-            <p class="description">Bienvenue sur Quizuya ! Teste tes connaissances parmi plus de 5 000 questions.</p>
-        </header>
-
-        <main class="card">
-            <div class="card-tricolor-bar">
-                <div class="b"></div>
-                <div class="w"></div>
-                <div class="r"></div>
-            </div>
-            <div class="card-body">
-                <h3>Choisis ton pseudo</h3>
-                <div class="input-group">
-                    <input type="text" id="pseudoInput" placeholder="Ex: JeanDupont" autocomplete="off" spellcheck="false">
-                    <div class="error-message" id="errorMessage">Oups ! Ton pseudo ne peut pas être vide.</div>
-                </div>
-                <button id="btnCommencer">▶ Commencer</button>
-            </div>
-        </main>
-
-        <footer>
-            <p>Version Alpha 1.0</p>
-            <p>© 2026 QUIZUYA - Créé par Rozuya</p>
-        </footer>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const btnCommencer = document.getElementById('btnCommencer');
-            const pseudoInput = document.getElementById('pseudoInput');
-            const errorMessage = document.getElementById('errorMessage');
-
-            const verifierPseudo = () => {
-                const pseudo = pseudoInput.value.trim();
-
-                if (pseudo === '') {
-                    pseudoInput.classList.add('input-error');
-                    errorMessage.style.display = 'block';
-                    
-                    errorMessage.style.animation = 'none';
-                    errorMessage.offsetHeight; 
-                    errorMessage.style.animation = null;
-                } else {
-                    pseudoInput.classList.remove('input-error');
-                    errorMessage.style.display = 'none';
-                    
-                    localStorage.setItem("pseudo", pseudo);
-                    window.location.href = "menu.html";
-                }
-            };
-
-            btnCommencer.addEventListener('click', verifierPseudo);
-
-            pseudoInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    verifierPseudo();
-                }
-            });
-
-            pseudoInput.addEventListener('input', () => {
-                if (pseudoInput.classList.contains('input-error')) {
-                    pseudoInput.classList.remove('input-error');
-                    errorMessage.style.display = 'none';
-                }
-            });
-        });
-    </script>
 </body>
 </html>
