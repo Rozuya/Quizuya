@@ -1,261 +1,381 @@
-:root {
---blue: #002654;
---white: #FFFFFF;
---red: #ED2939;
---glass-bg: rgba(255, 255, 255, 0.08);
---glass-border: rgba(255, 255, 255, 0.2);
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Principal - Quiz Culture Générale</title>
+    <!-- Police Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --blue: #002654;
+            --white: #FFFFFF;
+            --red: #ED2939;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
 
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Poppins', sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-body {
-background: linear-gradient(135deg, var(--blue), #0a1f3d, var(--red));
-background-size: 200% 200%;
-animation: gradientBG 15s ease infinite;
-color: var(--white);
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 2rem;
-overflow-x: hidden;
-position: relative;
-}
+        body {
+            background: linear-gradient(135deg, var(--blue), #0a1f3d, var(--red));
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-@keyframes gradientBG {
-0% { background-position: 0% 50%; }
-50% { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
-}
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-.bubble {
-position: fixed;
-border-radius: 50%;
-filter: blur(80px);
-z-index: -1;
-animation: float 10s infinite alternate ease-in-out;
-}
+        .bubble {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            animation: float 10s infinite alternate ease-in-out;
+        }
 
-.bubble-1 {
-width: 400px;
-height: 400px;
-background: var(--red);
-top: -100px;
-left: -150px;
-opacity: 0.4;
-}
+        .bubble-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--red);
+            top: -100px;
+            left: -150px;
+            opacity: 0.4;
+        }
 
-.bubble-2 {
-width: 500px;
-height: 500px;
-background: var(--blue);
-bottom: -150px;
-right: -100px;
-opacity: 0.5;
-animation-delay: -5s;
-}
+        .bubble-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--blue);
+            bottom: -150px;
+            right: -100px;
+            opacity: 0.5;
+            animation-delay: -5s;
+        }
 
-@keyframes float {
-0% { transform: translate(0, 0) scale(1); }
-100% { transform: translate(50px, 80px) scale(1.1); }
-}
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 80px) scale(1.1); }
+        }
 
-.glass {
-background: var(--glass-bg);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border: 1px solid var(--glass-border);
-border-radius: 20px;
-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-}
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
 
-header {
-text-align: center;
-width: 100%;
-max-width: 800px;
-padding: 2rem;
-margin-bottom: 3rem;
-animation: fadeInDown 1s ease;
-}
+        header {
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            animation: fadeInDown 1s ease;
+        }
 
-h1 {
-font-size: 3rem;
-font-weight: 800;
-letter-spacing: 2px;
-text-shadow: 2px 4px 8px rgba(0,0,0,0.4);
-}
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.4);
+        }
 
-.subtitle {
-font-size: 1.2rem;
-color: #d1d9e6;
-margin-bottom: 1.5rem;
-}
+        .subtitle {
+            font-size: 1.2rem;
+            color: #d1d9e6;
+            margin-bottom: 1.5rem;
+        }
 
-.user-profile {
-background: rgba(0, 38, 84, 0.5);
-padding: 1.5rem;
-border-radius: 15px;
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 10px;
-border: 1px solid rgba(255, 255, 255, 0.1);
-}
+        .user-profile {
+            background: rgba(0, 38, 84, 0.5);
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.pseudo {
-font-size: 1.5rem;
-font-weight: 600;
-}
+        .pseudo {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
 
-.stats {
-display: flex;
-justify-content: space-between;
-width: 100%;
-max-width: 300px;
-font-size: 0.9rem;
-}
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 300px;
+            font-size: 0.9rem;
+        }
 
-.xp-container {
-width: 100%;
-max-width: 300px;
-height: 10px;
-background: rgba(255, 255, 255, 0.2);
-border-radius: 10px;
-overflow: hidden;
-}
+        .xp-container {
+            width: 100%;
+            max-width: 300px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-.xp-bar {
-height: 100%;
-width: 0%;
-background: linear-gradient(90deg, #4d8ce0, var(--white));
-border-radius: 10px;
-transition: width 1.5s ease-out;
-box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
+        .xp-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #4d8ce0, var(--white));
+            border-radius: 10px;
+            transition: width 1.5s ease-out;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
 
-main {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-gap: 1.5rem;
-width: 100%;
-max-width: 1000px;
-margin-bottom: 3rem;
-}
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 3rem;
+        }
 
-.card {
-text-decoration: none;
-color: var(--white);
-padding: 2rem 1.5rem;
-display: flex;
-flex-direction: column;
-align-items: center;
-text-align: center;
-transition: all 0.3s ease;
-position: relative;
-overflow: hidden;
-animation: fadeInUp 0.8s backwards;
-}
+        .card {
+            text-decoration: none;
+            color: var(--white);
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s backwards;
+        }
 
-.card:nth-child(1) { animation-delay: 0.1s; }
-.card:nth-child(2) { animation-delay: 0.2s; }
-.card:nth-child(3) { animation-delay: 0.3s; }
-.card:nth-child(4) { animation-delay: 0.4s; }
-.card:nth-child(5) { animation-delay: 0.5s; }
-.card:nth-child(6) { animation-delay: 0.6s; }
-.card:nth-child(7) { animation-delay: 0.7s; }
-.card:nth-child(8) { animation-delay: 0.8s; }
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .card:nth-child(7) { animation-delay: 0.7s; }
+        .card:nth-child(8) { animation-delay: 0.8s; }
 
-.card::after {
-content: '';
-position: absolute;
-top: 0; left: -100%;
-width: 50%; height: 100%;
-background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
-transform: skewX(-20deg);
-transition: left 0.5s;
-}
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.5s;
+        }
 
-.card:hover::after {
-left: 150%;
-}
+        .card:hover::after {
+            left: 150%;
+        }
 
-.card:hover {
-transform: translateY(-10px);
-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-background: rgba(255, 255, 255, 0.15);
-border-color: rgba(255, 255, 255, 0.4);
-}
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
 
-.card .icon {
-font-size: 2.5rem;
-margin-bottom: 1rem;
-transition: transform 0.3s ease;
-filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
-}
+        .card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+        }
 
-.card:hover .icon {
-transform: scale(1.15);
-}
+        .card:hover .icon {
+            transform: scale(1.15);
+        }
 
-.card h3 {
-font-size: 1.2rem;
-font-weight: 600;
-margin-bottom: 0.5rem;
-}
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
 
-.card p {
-font-size: 0.9rem;
-color: #ccd6f6;
-}
+        .card p {
+            font-size: 0.9rem;
+            color: #ccd6f6;
+        }
 
-.logout {
-background: var(--red);
-color: var(--white);
-border: none;
-padding: 12px 40px;
-font-size: 1.1rem;
-font-weight: 600;
-border-radius: 30px;
-cursor: pointer;
-transition: all 0.3s ease;
-box-shadow: 0 4px 15px rgba(237, 41, 57, 0.4);
-margin-bottom: 2rem;
-}
+        .logout {
+            background: var(--red);
+            color: var(--white);
+            border: none;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(237, 41, 57, 0.4);
+            margin-bottom: 2rem;
+        }
 
-.logout:hover {
-background: #ff3b4b;
-transform: translateY(-3px);
-box-shadow: 0 8px 25px rgba(237, 41, 57, 0.6);
-}
+        .logout:hover {
+            background: #ff3b4b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(237, 41, 57, 0.6);
+        }
 
-footer {
-margin-top: auto;
-font-size: 0.9rem;
-opacity: 0.7;
-text-align: center;
-padding-bottom: 1rem;
-}
+        footer {
+            margin-top: auto;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
 
-@keyframes fadeInDown {
-from { opacity: 0; transform: translateY(-30px); }
-to { opacity: 1; transform: translateY(0); }
-}
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-@keyframes fadeInUp {
-from { opacity: 0; transform: translateY(30px); }
-to { opacity: 1; transform: translateY(0); }
-}
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-@media (max-width: 600px) {
-h1 { font-size: 2.2rem; }
-.card { padding: 1.5rem 1rem; }
-header { padding: 1.5rem; }
-}
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .card { padding: 1.5rem 1rem; }
+            header { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
 
+    <!-- Arrière-plan animé -->
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
 
-Déconnexion
+    <!-- En-tête avec profil utilisateur -->
+    <header class="glass">
+        <h1>Choisissez un Thème</h1>
+        <p class="subtitle">Sélectionnez une catégorie pour tester vos connaissances</p>
+        
+        <div class="user-profile">
+            <div class="pseudo" id="player-pseudo">Joueur</div>
+            <div class="stats">
+                <span>Niveau 1</span>
+                <span id="xp-text">0 / 100 XP</span>
+            </div>
+            <div class="xp-container">
+                <div class="xp-bar" id="xp-bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Grille des 8 catégories (redirection vers quiz.html avec paramètres) -->
+    <main>
+        <a href="quiz.html?category=histoire" class="card glass">
+            <div class="icon">📜</div>
+            <h3>Histoire</h3>
+            <p>Explorez les grands événements du passé</p>
+        </a>
+
+        <a href="quiz.html?category=geographie" class="card glass">
+            <div class="icon">🌍</div>
+            <h3>Géographie</h3>
+            <p>Parcourez les pays, capitales et continents</p>
+        </a>
+
+        <a href="quiz.html?category=sciences" class="card glass">
+            <div class="icon">🔬</div>
+            <h3>Sciences</h3>
+            <p>Découvrez la physique, chimie et nature</p>
+        </a>
+
+        <a href="quiz.html?category=cinema" class="card glass">
+            <div class="icon">🎬</div>
+            <h3>Cinéma</h3>
+            <p>Testez vos classiques du grand écran</p>
+        </a>
+
+        <a href="quiz.html?category=sport" class="card glass">
+            <div class="icon">⚽</div>
+            <h3>Sport</h3>
+            <p>Athlètes, records et compétitions</p>
+        </a>
+
+        <a href="quiz.html?category=musique" class="card glass">
+            <div class="icon">🎵</div>
+            <h3>Musique</h3>
+            <p>Du classique aux hits du moment</p>
+        </a>
+
+        <a href="quiz.html?category=jeuxvideos" class="card glass">
+            <div class="icon">🎮</div>
+            <h3>Jeux Vidéo</h3>
+            <p>Rétrogaming et consoles modernes</p>
+        </a>
+
+        <a href="quiz.html?category=littérature" class="card glass">
+            <div class="icon">📚</div>
+            <h3>Littérature</h3>
+            <p>Chefs-d'œuvre et auteurs célèbres</p>
+        </a>
+    </main>
+
+    <!-- Bouton Déconnexion -->
+    <button class="logout" id="btn-logout">Déconnexion</button>
+
+    <footer>
+        <p>&copy; 2026 Grand Quiz de Culture Générale. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Logique JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Récupération et affichage du pseudonyme
+            const pseudoElement = document.getElementById("player-pseudo");
+            const savedPseudo = localStorage.getItem("quiz_pseudo");
+
+            if (savedPseudo) {
+                pseudoElement.textContent = savedPseudo;
+            } else {
+                // Si l'utilisateur accède au menu sans pseudo, on le renvoie à l'accueil
+                window.location.href = "index.html";
+            }
+
+            // 2. Animation de la barre d'XP (Simulation à 45% pour l'exemple visuel)
+            setTimeout(() => {
+                const currentXP = 45; 
+                document.getElementById("xp-bar").style.width = `${currentXP}%`;
+                document.getElementById("xp-text").textContent = `${currentXP} / 100 XP`;
+            }, 300);
+
+            // 3. Gestion de la déconnexion
+            document.getElementById("btn-logout").addEventListener("click", () => {
+                localStorage.removeItem("quiz_pseudo"); // Efface le pseudo
+                window.location.href = "index.html"; // Retourne à l'accueil
+            });
+        });
+    </script>
+</body>
+</html>
